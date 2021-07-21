@@ -127,6 +127,7 @@ namespace SnakeGame
             {
                 Settings.Direction = "up";
             }
+
             for (int i = snake.Count -1; i >= 0; i--)
             {
                 if (i == 0)
@@ -140,10 +141,10 @@ namespace SnakeGame
                             snake[1].X++;
                             break;
                         case "down":
-                            snake[i].Y++;
+                            snake[i].Y--;
                             break;
                         case "up":
-                            snake[i].Y--;
+                            snake[i].Y++;
                             break;
                     }
                     if (snake[i].X < 0 )
@@ -163,13 +164,13 @@ namespace SnakeGame
                         snake[i].Y = 0;
                     }
 
-                    if (snake[i].Y == Food.Y && snake[i].Y == Food.Y)
+                    if (snake[i].X == Food.X && snake[i].Y == Food.Y)
                     {
                         EatFood();
                     }
                     for (int j = 1; j < snake.Count; j++)
                     {
-                        if (snake[i].X == snake[j].Y && snake[i].Y == snake[j].Y)
+                        if (snake[i].X == snake[j].X && snake[i].Y == snake[j].Y)
                         {
                             GameOver();
                         }
@@ -186,6 +187,20 @@ namespace SnakeGame
 
         private void GameOver()
         {
+            GameTimer.Stop();
+            Start.Enabled = true;
+            if (score > HighScore)
+            {
+                HighScore = score;
+                txtHighScore.Text =  "High Score: " + Environment.NewLine + HighScore;
+                txtHighScore.ForeColor = Color.Maroon;
+                txtHighScore.TextAlign = ContentAlignment.MiddleCenter;
+            }
+
+        }
+
+        private void GameTimer_Tick_1(object sender, EventArgs e)
+        {
 
         }
 
@@ -197,15 +212,15 @@ namespace SnakeGame
             }
             if (e.KeyCode == Keys.Right && Settings.Direction != "left")
             {
-                GoLeft = true; 
+                GoRight = true; 
             }
             if (e.KeyCode == Keys.Up && Settings.Direction != "down")
             {
-                GoLeft = true; 
+                GoUp = true; 
             }
             if (e.KeyCode == Keys.Down && Settings.Direction != "up")
             {
-                GoLeft = true; 
+                GoDown = true; 
             }
 
         }

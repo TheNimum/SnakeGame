@@ -83,7 +83,6 @@ namespace SnakeGame
             this.txtHighScore.Size = new System.Drawing.Size(93, 20);
             this.txtHighScore.TabIndex = 2;
             this.txtHighScore.Text = "HighScore";
-            this.txtHighScore.Click += new System.EventHandler(this.label2_Click);
             // 
             // Form1
             // 

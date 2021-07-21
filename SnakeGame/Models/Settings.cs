@@ -20,7 +20,7 @@ namespace SnakeGame.Models
             Width = 16;
             Height = 16;
 
-            Direction = "left";
+            Direction = "right";
 
         }
     }
