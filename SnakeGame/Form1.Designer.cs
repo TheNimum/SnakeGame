@@ -30,37 +30,39 @@ namespace SnakeGame
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Start = new System.Windows.Forms.Button();
             this.GameTimer = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Picture = new System.Windows.Forms.PictureBox();
             this.txtScore = new System.Windows.Forms.Label();
             this.txtHighScore = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Picture)).BeginInit();
             this.SuspendLayout();
             // 
-            // button3
+            // Start
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(708, 21);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(118, 51);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "Start";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.Start.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Start.Location = new System.Drawing.Point(708, 21);
+            this.Start.Name = "Start";
+            this.Start.Size = new System.Drawing.Size(118, 51);
+            this.Start.TabIndex = 0;
+            this.Start.Text = "Start";
+            this.Start.UseVisualStyleBackColor = true;
+            this.Start.Click += new System.EventHandler(this.StartButton);
             // 
             // GameTimer
             // 
             this.GameTimer.Interval = 40;
+            this.GameTimer.Tick += new System.EventHandler(this.GameTimer_Tick);
             // 
-            // pictureBox1
+            // Picture
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Silver;
-            this.pictureBox1.Location = new System.Drawing.Point(86, 21);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(580, 680);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.Picture.BackColor = System.Drawing.Color.Silver;
+            this.Picture.Location = new System.Drawing.Point(86, 21);
+            this.Picture.Name = "Picture";
+            this.Picture.Size = new System.Drawing.Size(580, 680);
+            this.Picture.TabIndex = 1;
+            this.Picture.TabStop = false;
+            this.Picture.Paint += new System.Windows.Forms.PaintEventHandler(this.GameScreen);
             // 
             // txtScore
             // 
@@ -90,13 +92,13 @@ namespace SnakeGame
             this.ClientSize = new System.Drawing.Size(867, 730);
             this.Controls.Add(this.txtHighScore);
             this.Controls.Add(this.txtScore);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.Picture);
+            this.Controls.Add(this.Start);
             this.Name = "Form1";
             this.Text = "SnakeGame";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Picture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,9 +106,9 @@ namespace SnakeGame
 
         #endregion
 
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Start;
         private System.Windows.Forms.Timer GameTimer;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox Picture;
         private System.Windows.Forms.Label txtScore;
         private System.Windows.Forms.Label txtHighScore;
     }

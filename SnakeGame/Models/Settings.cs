@@ -13,14 +13,14 @@ namespace SnakeGame.Models
         public static int Width { get; set; }
         public static int Height { get; set; }
 
-        public static string Direction; 
-        
+        public static string Direction;
+
         public Settings()
         {
             Width = 16;
             Height = 16;
 
-            Direction = "left"; 
+            Direction = "left";
 
         }
     }
