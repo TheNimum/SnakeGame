@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SnakeGame.Models
 {
-    class GameModels  // name is not final, this will help Doing the Apples and the Sneak Model.
+    class GameModels  
     {
         public int X { get; set; }
         public int Y { get; set; }

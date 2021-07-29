@@ -55,7 +55,7 @@ namespace SnakeGame
             GameModels head = new GameModels { X = 10, Y = 5 };
             snake.Add(head);
 
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 5; i++)
             {
                 GameModels body = new GameModels();
                 snake.Add(body);
@@ -96,21 +96,25 @@ namespace SnakeGame
 
                 screen.FillEllipse(snakeColour, new Rectangle
                     (
-                    snake[i].X * Settings.Height,
-                    snake[i].Y * Settings.Width,
+                    snake[i].X * Settings.Width,
+                    snake[i].Y * Settings.Height,
                     Settings.Width, Settings.Height
                     ));
             }
-            screen.FillEllipse(Brushes.DarkRed, new Rectangle
+                screen.FillEllipse(Brushes.DarkRed, new Rectangle
                     (
-                    Food.X * Settings.Height,
-                    Food.Y * Settings.Width,
+                    Food.X * Settings.Width,
+                    Food.Y * Settings.Height,
                     Settings.Width, Settings.Height
                     ));
         }
+        
 
         private void GameTimer_Tick(object sender, EventArgs e)
         {
+            
+
+            
             if (GoLeft)
             {
                 Settings.Direction = "left";
@@ -138,20 +142,20 @@ namespace SnakeGame
                             snake[i].X--;
                             break;
                         case "right":
-                            snake[1].X++;
+                            snake[i].X++;
                             break;
                         case "down":
-                            snake[i].Y--;
+                            snake[i].Y++;
                             break;
                         case "up":
-                            snake[i].Y++;
+                            snake[i].Y--;
                             break;
                     }
                     if (snake[i].X < 0 )
                     {
                         snake[i].X = MaxWidth;
                     }
-                    if (snake[i].X > MaxWidth)
+                    if (snake[i].X > MaxWidth) 
                     {
                         snake[i].X = 0;
                     }
@@ -178,8 +182,8 @@ namespace SnakeGame
                 }
                 else
                 {
-                    snake[i].X = snake[i - 1].X;
-                    snake[i].Y = snake[i - 1].Y;
+                    snake[i].X = snake[i -1].X;
+                    snake[i].Y = snake[i -1].Y;
                 }
             }
             Picture.Invalidate();
@@ -230,13 +234,16 @@ namespace SnakeGame
             if (e.KeyCode == Keys.Left)
             {
                 GoLeft = false;
-            }if (e.KeyCode == Keys.Right)
+            }
+            if (e.KeyCode == Keys.Right)
             {
                 GoRight = false;
-            }if (e.KeyCode == Keys.Up)
+            }
+            if (e.KeyCode == Keys.Up)
             {
                 GoUp = false;
-            }if (e.KeyCode == Keys.Down)
+            }
+            if (e.KeyCode == Keys.Down)
             {
                 GoDown = false;
             }
